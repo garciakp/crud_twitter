@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const UsersModel = require('../models/UserModel');
+const UserModel = require('../models/UserModel');
 
 // Create user
 router.post('/', (req, res) => {
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
 
 // Read all users
 router.get('/', (req, res) => {
-    UsersModel
+    UserModel
     .find()
     .then(data => {res.json(data);})
     .catch(err => {res.json({message: err});});
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 
 // Read specific user by id
 router.get('/:id', (req, res) => {
-    UsersModel
+    UserModel
     .findById(req.params.id)
     .then(data => {res.json(data);})
     .catch(err => {res.json({message: err});});
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 
 // Update user
 router.patch('/:id', (req, res) => {
-    UsersModel
+    UserModel
     .updateOne({_id: req.params.id}, {$set: {user: req.body.user, password: req.body.password}})
     .then(data => {res.json(data);})
     .catch(err => {res.json({message: err});});
@@ -40,7 +40,7 @@ router.patch('/:id', (req, res) => {
 
 // Delete user
 router.delete('/:id', (req, res) => {
-    UsersModel
+    UserModel
     .deleteOne({_id: req.params.id})
     .then(data => {res.json(data);})
     .catch(err => {res.json({message: err});});

@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 // Import Routes
 const UserRoute = require('./routes/UserRoute');
 const PostRoute = require('./routes/PostRoute');
+const FollowRoute = require('./routes/FollowRoute');
 
 //Routes
 app.get('/', (req, res) => {
@@ -16,6 +17,8 @@ app.get('/', (req, res) => {
 });
 app.use('/user', UserRoute);
 app.use('/post', PostRoute);
+app.use('/follow', FollowRoute);
+
 
 //Connect to DB
 mongoose.connect(

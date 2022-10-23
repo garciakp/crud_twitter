@@ -8,12 +8,14 @@ app.use(bodyParser.json());
 
 // Import Routes
 const UserRoute = require('./routes/UserRoute');
-app.use('/user', UserRoute);
+const PostRoute = require('./routes/PostRoute');
 
 //Routes
 app.get('/', (req, res) => {
     res.send('Home: Crud Twitter');
 });
+app.use('/user', UserRoute);
+app.use('/post', PostRoute);
 
 //Connect to DB
 mongoose.connect(

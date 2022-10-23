@@ -4,7 +4,7 @@ const UserModel = require('../models/UserModel');
 
 // Create user
 router.post('/', (req, res) => {
-    const user = UsersModel({
+    const user = UserModel({
         user: req.body.user,
         password: req.body.password,
 });

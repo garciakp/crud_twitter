@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/UserModel');
-//const PostModel = require('../models/PostModel');
 
-// Crear vinculo Follower y Following
+// Create link Follower y Following
 router.post('/', (req, res) => {
     UserModel
     .updateOne({user: req.body.user}, {$addToSet: {"following": req.body.following}})
@@ -32,7 +31,7 @@ router.get('/following/:user', (req, res) => {
     .catch(err => {res.json({message: err});});
 });
 
-// Delete vinculo Follower y Following
+// Delete link Follower y Following
 router.delete('/', (req, res) => {
     UserModel
     .updateOne({user: req.body.user}, {$pull: {"following": req.body.following}})
@@ -44,7 +43,5 @@ router.delete('/', (req, res) => {
     })
     .catch(err => {res.json({message: err});});
 });
-
-
 
 module.exports = router;

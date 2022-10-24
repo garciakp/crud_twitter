@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 const UserRoute = require('./routes/UserRoute');
 const PostRoute = require('./routes/PostRoute');
 const FollowRoute = require('./routes/FollowRoute');
+const LikeRoute = require('./routes/LikeRoute');
 
 //Routes
 app.get('/', (req, res) => {
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 app.use('/user', UserRoute);
 app.use('/post', PostRoute);
 app.use('/follow', FollowRoute);
+app.use('/like', LikeRoute);
 
 
 //Connect to DB
